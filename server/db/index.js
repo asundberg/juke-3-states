@@ -8,6 +8,7 @@ const chalk = require('chalk');
 require('./models');
 
 // Syncing all the models at once. This promise is used by main.js.
+// -- We are able to run db.sync(), because it's a method on Sequelize, and const db is the exported Sequelize instance. In the individual model files, we also have to require db of course, because they're initialized through 'db.define'.
 var syncedDbPromise = db.sync();
 
 syncedDbPromise.then(function () {

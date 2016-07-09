@@ -6,10 +6,12 @@ module.exports = app;
 
 // Pass our express application pipeline into the configuration
 // function located at server/app/configure/index.js
+// --
 require('./configure')(app);
 
 // Routes that will be accessed via AJAX should be prepended with
 // /api so they are isolated from our GET /* wildcard.
+// -- 'api' is the way that the browser / client side application will get and set data on the server.
 app.use('/api', require('./routes'));
 
 
@@ -20,15 +22,14 @@ app.use('/api', require('./routes'));
  URLs that bypass express.static because the given file does not exist.
  */
 app.use(function (req, res, next) {
-
     if (path.extname(req.path).length > 0) {
         res.status(404).end();
     } else {
         next(null);
     }
-
 });
 
+// -- Star means anything except api (because that was defined first)
 app.get('/*', function (req, res) {
     res.sendFile(app.get('indexHTMLPath'));
 });

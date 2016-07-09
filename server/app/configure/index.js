@@ -10,7 +10,7 @@ module.exports = function (app) {
   app.getValue = function (path) {
       return app.get(path);
   };
-
+  // -- Below sets a bunch of variables so we can use them in the app
   require('./app-variables')(app);
 
   // Logging middleware, set as application

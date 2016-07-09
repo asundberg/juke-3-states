@@ -1,6 +1,7 @@
 'use strict';
 
 var path = require('path');
+// -- Below means morgan only logs in 'dev' environment. (??)
 var logMiddleware = require('morgan')('dev');
 
 var rootPath = path.join(__dirname, '../../../');

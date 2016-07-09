@@ -21,11 +21,12 @@ var createApplication = function () {
 };
 
 var startServer = function () {
+  // -- process.env is an object containing all environment variables on the machine that is running this code.
     var PORT = process.env.PORT || 1337;
+    // -- The below runs the 'listen' function, which starts listening to the PORT we set, and then runs the callback which prints into the terminal.
     server.listen(PORT, function () {
         console.log(chalk.blue('Server started on port', chalk.magenta(PORT)));
     });
-
 };
 
 startDb
@@ -35,3 +36,7 @@ startDb
     console.error(chalk.red(err.stack));
     process.kill(1);
 });
+// -- 1) 'startDb' is a promise object from the db index.js which syncs the dababase.
+// -- 2) Then we create the app. Here we can look in app/index.js to see how that works.
+// -- 3) Then we start the server.
+// -- 4) Catch errors.
