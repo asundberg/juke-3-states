@@ -33,6 +33,8 @@ juke.controller('ArtistCtrl', function ($scope, $log, ArtistFactory, PlayerFacto
   ArtistFactory.fetchById($stateParams.artistId)
   .then(function (artist) {
     $scope.artist = artist;
+    $scope.albums = artist.albums;
+    $scope.songs = artist.songs;
   })
   .catch($log.error);
 
@@ -55,9 +57,7 @@ juke.controller('ArtistCtrl', function ($scope, $log, ArtistFactory, PlayerFacto
       PlayerFactory.resume();
     }
   };
-
   // $scope.viewOneAlbum = function (album) {
   //   $rootScope.$broadcast('viewSwap', { name: 'oneAlbum', id: album.id });
   // };
-
 });

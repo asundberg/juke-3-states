@@ -30,7 +30,13 @@ juke.config(function ($stateProvider) {
   $stateProvider.state('albumsByArtist', {
     url: '/artists/:artistId/albums',
     templateUrl: '/views/all-albums.template.html',
-    controller: 'AlbumsByArtistCtrl'
+    controller: 'ArtistCtrl'
+  });
+
+  $stateProvider.state('songsByArtist', {
+    url: '/artists/:artistId/songs',
+    templateUrl: '/views/songs.template.html',
+    controller: 'ArtistCtrl'
   });
 
 });
