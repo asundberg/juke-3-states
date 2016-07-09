@@ -26,6 +26,13 @@ juke.config(function ($stateProvider) {
     templateUrl: '/views/artist.template.html',
     controller: 'ArtistCtrl'
   });
+
+  $stateProvider.state('albumsByArtist', {
+    url: '/artists/:artistId/albums',
+    templateUrl: '/views/all-albums.template.html',
+    controller: 'AlbumsByArtistCtrl'
+  });
+
 });
 
 // -- We can also specify a controller in the state definition with controller: 'TheControllerName'. Take the ng-controller=... out of the template and define the controller: in the state definition.
